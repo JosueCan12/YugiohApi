@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import ComponentPortada from "./../components/ComponentPortada";
 
 function PagePerfil() {
   return (
-    <div className=' flex'>PagePerfil</div>
-  )
+    <div className=" flex">
+      <ComponentPortada />
+    </div>
+  );
 }
 
-export default PagePerfil
+export default PagePerfil;

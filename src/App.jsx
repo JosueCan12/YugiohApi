@@ -1,16 +1,19 @@
 import CardInfo from "./components/CardInfo";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import {  Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import PagePerfil from "./pages/PagePerfil";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <div className="flex">
+    <div className="">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<CardInfo />} />
-        <Route path="/perfil" element={<PagePerfil/>} />
-      </Routes>
+      <div className="pt-16">
+        <Routes>
+          <Route path="/" element={<CardInfo />} />
+          <Route path="/perfil" element={<PagePerfil />} />
+        </Routes>
+      </div>
     </div>
   );
 }

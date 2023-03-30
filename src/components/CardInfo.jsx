@@ -3,6 +3,7 @@ import CharacterList from "./CharacterList";
 
 function CardInfo() {
   const [cards, setCards] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -10,14 +11,24 @@ function CardInfo() {
         "https://db.ygoprodeck.com/api/v7/cardinfo.php"
       );
       const data = await response.json();
-      setCards(data.data.slice(15,50)); 
-      console.log(cards)
-      console.log(data)
+      setCards(data.data.slice(15, 50));
+      setIsLoading(false);
+
+      console.log(data);
     }
     fetchData();
   }, []);
 
-  return <CharacterList data={cards} />;
+  return (
+    <>
+      {isLoading && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <p className="text-white">Cargando...</p>
+        </div>
+      )}
+      <CharacterList data={cards} />
+    </>
+  );
 }
 
 export default CardInfo;
